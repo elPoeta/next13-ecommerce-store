@@ -9,3 +9,30 @@ export interface Category {
   name: string;
   billboardId: string;
 }
+
+export interface Size {
+  id: string;
+  name: string;
+  value: string;
+}
+
+export interface Color {
+  id: string;
+  name: string;
+  value: string;
+}
+
+export interface Image {
+  id: string;
+  url: string;
+}
+export interface Product {
+  id: string;
+  category: Category;
+  name: string;
+  price: number;
+  isFeatured: boolean;
+  size: Size;
+  color: Color;
+  images: Image[];
+}
