@@ -6,15 +6,23 @@ import React, { FC } from 'react'
 import { Button } from '../ui/button'
 import { Expand, ShoppingCart } from 'lucide-react'
 import Currency from './Currency'
+import { useRouter } from 'next/navigation'
 
 interface ProductCardProps {
   item: Product
 }
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
-  const { name, category, price, images } = item
+  const { id, name, category, price, images } = item
+
+  const router = useRouter();
+
+  const handlerClick = () => {
+    router.push(`/product/${id}`);
+  }
+
   return (
-    <div className='group cursor-pointer rounded-xl border p-3 spae-y-4'>
+    <div onClick={handlerClick} className='group cursor-pointer rounded-xl border p-3 spae-y-4'>
       <div className='aspect-square rounded-xl relative bg-gray-100'>
         <Image
           src={images?.[0]?.url}
